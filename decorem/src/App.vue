@@ -1,22 +1,16 @@
 <template>
   <div>
-    <Header title="Decorem"/>
     <Home />
-    <Footer />
   </div>
 </template>
 
 <script>
-import Header from './components/Pages/Header.vue';
-import Home from './components/Pages/Home.vue';
-import Footer from './components/Pages/Footer.vue';
+import Home from './components/pages/patron-pages/Home.vue';
 
 export default {
   name: 'App',
   components: {
-    Header,
     Home,
-    Footer,
   }
 }
 </script>
