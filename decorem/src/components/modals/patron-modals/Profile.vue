@@ -1,23 +1,32 @@
 <template>
-    <Button @click="onClick()" text='Profile'></Button>
+    <div>Profile</div>
 </template>
 
 <script>
-import Button from '../../../utils/Button.vue';
 
 export default {
-    name: 'Menu',
+    name: 'Profile',
     props: {
 
     },
     components: {
-        Button,
     },
     emits: ['btn-click'],
     methods: {
-        onClick() {
-            console.log('profile click')
-        },
+
     },
 }
 </script>
+
+<style scoped>
+div {
+    width: 15em;
+    height: 30em;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgb(250,240,230);
+    border: 1px solid black;
+    z-index: 10;
+}
+</style>

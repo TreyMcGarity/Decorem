@@ -1,11 +1,11 @@
 <template>
-    <div>Menu</div>
+    <div>Cart</div>
 </template>
 
 <script>
 
 export default {
-    name: 'Menu',
+    name: 'Cart',
     props: {
 
     },
@@ -23,11 +23,9 @@ export default {
 div {
     width: 15em;
     height: 30em;
-    display: flex;
-    flex-direction: column;
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     background-color: rgb(250,240,230);
     border: 1px solid black;
     z-index: 10;
