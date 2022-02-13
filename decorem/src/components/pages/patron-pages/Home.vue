@@ -1,6 +1,13 @@
 <template>
     <div>
-        <Header title="Decorem"/>
+        <Header 
+            title="Decorem"
+            browsingItems= "false"
+            searchingItems= "false"
+            savingItems= "false"
+            cartingItems= "false"
+            profiling= "false"
+        />
         <p>Home</p>
         <Footer />
     </div>
