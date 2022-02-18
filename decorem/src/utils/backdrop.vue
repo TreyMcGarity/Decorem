@@ -1,12 +1,5 @@
 <template>
     <div class="show ? 'backdrop':'backdrop-closed'">
-    <!-- 
-    onClick={(event)=> {
-        event.cancelBubble = true;
-        event.stopPropagation();
-        props.set(false)
-    }}>
-    -->
     </div>
 </template>
 
@@ -16,7 +9,14 @@ export default {
   props: {
       show: Boolean,
   },
-}
+  methods: {
+        toggle (event)  {
+            event.cancelBubble = true;
+            event.stopPropagation();
+            this.set(false)
+        }
+    },
+  }
 </script>
 
 <style scoped>

@@ -1,10 +1,10 @@
 <template>
   <header>
-    <div v-if="browsingItems == true">
+    <div v-if="isHidden == true">
           <Listing />
-          <!-- <Backdrop show='browsing' set={showListing} /> -->
+          <Backdrop show='isHidden' set="toggle" />
     </div> 
-    <img class="header-link" :src="menu" alt="menu" />
+    <img @click="toggle" class="header-link" :src="menu" alt="menu" />
     <h1>{{ title }}</h1>
         <div v-if="searchingItems == true">
           <SearchBar />
@@ -46,11 +46,11 @@ export default {
   name: 'Header',
   props: {
       title: String,
-      browsingItems: Boolean,
-      searchingItems: Boolean,
-      savingItems: Boolean,
-      cartingItems: Boolean,
-      profiling: Boolean,
+  //     browsingItems: Boolean,
+  //     searchingItems: Boolean,
+  //     savingItems: Boolean,
+  //     cartingItems: Boolean,
+  //     profiling: Boolean,
   },
   data() {
     return {
@@ -59,6 +59,17 @@ export default {
       searchIcon: searchIcon,
       cart: cart,
       heart: heart,
+      isHidden: false,
+      // browsingItems : false,
+      // searchingItems: false,
+      // savingItems: false,
+      // cartingItems: false,
+      // profiling: false
+    }
+  },
+  methods: {
+    toggle() {
+      this.isHidden = !this.isHidden
     }
   },
   components: {
