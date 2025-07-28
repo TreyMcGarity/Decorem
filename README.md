@@ -1,9 +1,4 @@
 # Shop_Site_FE
-
-## Creators:
-### Emma Harthun
-### Bradley Breedlove
-### Trey McGarity
 ##
 
 ## Concept
