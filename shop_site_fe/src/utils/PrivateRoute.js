@@ -1,38 +1,37 @@
 import React, { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
 import AxiosWithCreds from "./axoisWithCreds";
-import { Route, Redirect } from "react-router";
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = ({ element }) => {
 	const [auth, setAuth] = useState({ isAuth: false, ready: false });
+
 	useEffect(() => {
+		let isMounted = true;
+
 		const checkAuth = async () => {
 			try {
 				await AxiosWithCreds.get("/auth/verify_session");
-				setAuth({
-					isAuth: true,
-					ready: true,
-				});
+				if (isMounted) {
+					setAuth({ isAuth: true, ready: true });
+				}
 			} catch (error) {
-				setAuth({ ...auth, ready: true });
+				if (isMounted) {
+					setAuth({ isAuth: false, ready: true });
+				}
 			}
 		};
+
 		checkAuth();
-	}, [auth]);
-	return (
-		<>
-			{auth.ready && (
-				<Route
-					{...rest}
-					render={(props) => {
-						if (auth.isAuth) {
-							return <Component {...props} />;
-						}
-						return <Redirect to="/" />;
-					}}
-				/>
-			)}
-		</>
-	);
+		return () => {
+			isMounted = false;
+		};
+	}, []);
+
+	if (!auth.ready) {
+		return null;
+	}
+
+	return auth.isAuth ? element : <Navigate to="/" replace />;
 };
 
 export default PrivateRoute;

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { API_BASE_URL } from '../../config';
 import {
     GET_PRODUCTS_SUCCESS,
     GET_PRODUCTS_FAILURE,
@@ -15,7 +16,7 @@ import {
 
 export const getProducts = () => (dispatch) => {
     axios
-    .get(`${process.env.REACT_APP_BACKEND}/products`)
+    .get(`${API_BASE_URL}/products`)
     .then((res) => {
         dispatch({
             type: GET_PRODUCTS_SUCCESS,
@@ -32,7 +33,7 @@ export const getProducts = () => (dispatch) => {
 
 export const getProduct = (id) => (dispatch) => {
     axios
-    .get(`${process.env.REACT_APP_BACKEND}/products/${id}`)
+    .get(`${API_BASE_URL}/products/${id}`)
     .then((res) => {
         dispatch({
             type: GET_PRODUCT_SUCCESS,
@@ -50,7 +51,7 @@ export const getProduct = (id) => (dispatch) => {
 
 export const addProduct = (data) => (dispatch) => {
     axios
-    .get(`${process.env.REACT_APP_BACKEND}/products`, data)
+    .get(`${API_BASE_URL}/products`, data)
     .then((res) => {
         dispatch({
             type: ADD_PRODUCT_SUCCESS,
@@ -67,7 +68,7 @@ export const addProduct = (data) => (dispatch) => {
 
 export const updateProduct = (id, updatedData) => (dispatch) => {
     axios
-    .get(`${process.env.REACT_APP_BACKEND}/products/${id}`, updatedData)
+    .get(`${API_BASE_URL}/products/${id}`, updatedData)
     .then((res) => {
         dispatch({
             type: UPDATE_PRODUCT_SUCCESS,
@@ -84,7 +85,7 @@ export const updateProduct = (id, updatedData) => (dispatch) => {
 
 export const deleteProduct = (id) => (dispatch) => {
     axios
-    .get(`${process.env.REACT_APP_BACKEND}/products/${id}`)
+    .get(`${API_BASE_URL}/products/${id}`)
     .then((res) => {
         dispatch({
             type: DELETE_PRODUCT_SUCCESS,
