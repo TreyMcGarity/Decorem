@@ -1,24 +1,24 @@
 import React from 'react';
-import Searcher from '../../../utils/images/header/search-icon-other.png'
+import Searcher from '../../../utils/images/header/search-icon-other.png';
 import X from '../../../utils/images/header/X.png';
 import '../../../styles/modals/patron-modals/search.scss';
 
-const Search = props => {
-    console.log(props)
+const Search = ({ search, handleChange, handleSubmit, showSearching }) => {
     return (
         <div className="searchBar">
-            <img className="x" src={Searcher} alt="magnifing glass" onClick={() => {}} />
-            <form onSubmit={props.handleSubmit}>
+            <img className="x" src={Searcher} alt="magnifying glass" onClick={() => {}} />
+            <form onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    placeholder="search"
-                    value={props.search}
-                    onChange={props.handleChange}
+                    name="query"
+                    placeholder="Search home goods"
+                    value={search}
+                    onChange={handleChange}
                 />
             </form>
-            <img className="x" src={X} alt="X" onClick={() => {props.showSearching(false)}} />
+            <img className="x" src={X} alt="Close search" onClick={() => showSearching(false)} />
         </div>
-    )
-}
+    );
+};
 
 export default Search;

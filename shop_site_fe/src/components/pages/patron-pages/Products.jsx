@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { getProducts } from '../../../redux/actions/productActions';
 import { connect, useDispatch } from "react-redux";
 import Product from '../segments/Product';
@@ -6,31 +6,46 @@ import Header from '../segments/Header';
 import Footer from '../segments/Footer';
 import '../../../styles/pages/patron-pages/products.scss';
 
-const Products = props => {
+const Products = ({ products }) => {
     const dispatch = useDispatch();
+    const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
-		dispatch(getProducts())
-	}, [dispatch]);
+        dispatch(getProducts());
+    }, [dispatch]);
 
-    // products need a selected and saved flag that is tied to profile and relational to the listing
+    const filteredProducts = useMemo(() => {
+        const items = products?.product_data || [];
+        const query = searchQuery.trim().toLowerCase();
+
+        if (!query) {
+            return items;
+        }
+
+        return items.filter((product) => {
+            const name = (product?.name || '').toLowerCase();
+            const details = (product?.details || '').toLowerCase();
+            return name.includes(query) || details.includes(query);
+        });
+    }, [products, searchQuery]);
+
     return (
         <div>
-            <Header />
+            <Header onSearch={setSearchQuery} />
             <div className='products'>
-                {props.products.product_data ? props.products.product_data.map((p, i) => {
-                    return <Product key={i} product={p} />
-                }) : <p>No products</p>}
+                {filteredProducts.length ? (
+                    filteredProducts.map((product, index) => <Product key={index} product={product} />)
+                ) : (
+                    <p>No products match your search.</p>
+                )}
             </div>
             <Footer />
         </div>
-    )
-}
+    );
+};
 
-const mapping = (state) => {
-    return {
-        products: state.product,
-    }
-}
+const mapping = (state) => ({
+    products: state.product,
+});
 
 export default connect(mapping)(Products);
