@@ -1,23 +1,63 @@
 .header {
-    height: 5em;
-    display: flex; 
-    flex-direction: row;
-    justify-content: space-between; 
+    height: 5.5rem;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 2em;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    border-bottom: 1px solid var(--line);
 }
 
 .header-link {
-    height: 1.5em;
-    width: 1.5em;  
+    width: 1.15rem;
+    height: 1.15rem;
+    object-fit: contain;
+    opacity: .72;
+    transition: opacity .2s ease, transform .2s ease;
+
+    &:hover {
+        opacity: 1;
+        transform: translateY(-2px);
+    }
 }
 
 .listingbtn {
-    margin-left: 1em;
+    display: flex;
+    align-items: center;
+    width: 8rem;
 }
 
 .optionalbtn {
-    width: 15em;
+    width: 8rem;
     display: flex;
-    justify-content: space-evenly; 
+    justify-content: flex-end;
+    gap: 1.25rem;
+}
+
+.header .title {
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(1.7rem, 4vw, 2.35rem);
+    letter-spacing: -.04em;
+}
+
+@media (max-width: 600px) {
+    .header {
+        height: 4.75rem;
+        padding: 0 1.15rem;
+    }
+
+    .listingbtn,
+    .optionalbtn {
+        width: 5.5rem;
+    }
+
+    .optionalbtn {
+        gap: .8rem;
+    }
+
+    .optionalbtn .favs {
+        display: none;
+    }
 }

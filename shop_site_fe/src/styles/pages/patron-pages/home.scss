@@ -1,71 +1,172 @@
-/* 
-Biege: #FAF0E6
-Green: #B3E6CC
-Blue: #748FBF
-Gold: #F5DF4E
-Purple: #581845
-Burgandy: #900C3F
-White: #FBFBFB
-Black: #202020
-*/
-
 .home {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    margin: 0 10em;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem 6rem;
 
-    @media (max-width: 800px) {
-        margin: 0 2em;
+    .hero {
+        display: grid;
+        grid-template-columns: minmax(280px, .8fr) 1.2fr;
+        min-height: 460px;
+        background: var(--sage);
+        overflow: hidden;
     }
 
     .promo {
-        background-color: #B3E6CC; //light green
-        margin: 2em;
-        padding: .5em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: clamp(2rem, 5vw, 5rem);
+        text-align: left;
+
+        .eyebrow {
+            margin: 0 0 1.5rem;
+            color: var(--coral);
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2 {
+            max-width: 500px;
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: -.04em;
+            line-height: 1.02;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.7rem);
+        }
+
+        p {
+            max-width: 390px;
+            margin: 1.5rem 0 0;
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
     }
 
-    .options {
-        display: flex;
-        flex-direction: row;
-        padding: 2em 0;
+    .hero-image {
+        min-height: 460px;
+        background: var(--surface);
 
-        .option {
-            padding: 1em;
-            margin: .5em;
-            background-color: #748FBF;
-            border: .1 solid black;
-            border-radius: 50%;
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
+    }
+
+    .section-label {
+        margin: 4.5rem 0 1.25rem;
+        color: var(--muted);
+        font-size: .72rem;
+        font-weight: 700;
+        letter-spacing: .16em;
+        text-transform: uppercase;
     }
 
     .icon-menu {
         display: flex;
-        flex-direction: row;
-        justify-content: center;
-        justify-content: space-around;
-        margin: 2em 0;
-        padding: 1em;
-        border: .2em solid black;
-        border-radius: 1em;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.25rem 0 0;
+        border-top: 1px solid var(--line);
+
+        .category {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            align-items: center;
+            gap: .75rem;
+            color: var(--muted);
+            font-size: .78rem;
+            font-weight: 600;
+        }
     }
 
     .icon {
-        height: 3em;
-        width: 3em;
-
-        @media (max-width: 800) {
-            height: 2em;
-            width: 2em;        
-        }
+        width: 3.2rem;
+        height: 3.2rem;
+        padding: .7rem;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        background: var(--surface);
+        object-fit: contain;
     };
 
-    .model {
-        img {
-            width: 70%;
+    .secondary {
+        display: grid;
+        grid-template-columns: .8fr 1fr;
+        align-items: end;
+        gap: 2rem;
+        padding: 5rem 0 2.25rem;
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.4rem);
+        }
+
+        p {
+            margin: 0;
         }
     }
 
+    .model {
+        height: 440px;
+        overflow: hidden;
 
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 35%;
+        }
+    }
+
+    @media (max-width: 700px) {
+        padding: 2rem 1.15rem 4rem;
+
+        .hero {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .hero-image,
+        .hero-image img {
+            min-height: 280px;
+            height: 280px;
+        }
+
+        .promo {
+            padding: 2.25rem 1.5rem 2.75rem;
+        }
+
+        .icon-menu {
+            gap: .35rem;
+        }
+
+        .category {
+            font-size: .68rem;
+        }
+
+        .secondary {
+            display: block;
+            padding: 3.5rem 0 1.5rem;
+
+            p {
+                margin-top: 1.25rem;
+            }
+        }
+
+        .model {
+            height: 330px;
+        }
+    }
 }

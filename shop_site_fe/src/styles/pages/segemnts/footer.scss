@@ -1,8 +1,12 @@
 .footer {
-    height: 10em;
+    min-height: 8rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color: lightgrey;
-    border-top: 2em;
+    padding: 2rem;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    text-align: center;
 }

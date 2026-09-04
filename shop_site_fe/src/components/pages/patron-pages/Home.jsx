@@ -15,19 +15,24 @@ const Home = () => {
         <>
             <Header />
             <div className='home'>
-                <div className='promo'>
+                <div className='hero'>
+                    <div className='promo'>
+                    <p className='eyebrow'>The new home edit</p>
                     <h1>Refresh your space with pieces that feel like home.</h1>
                     <p>Thoughtful decor, room-ready accents, and everyday essentials for beautiful living.</p>
+                    </div>
+                    <div className='hero-image'>
+                        <img src={Group} alt='Decor collection set' />
+                    </div>
                 </div>
 
-                <img src={Group} alt='Decor collection set' />
-
+                <p className='section-label'>Shop by feeling</p>
                 <div className='icon-menu'>
-                    <img className='icon' src={Plant} alt='plants icon' />
-                    <img className='icon' src={Picture} alt='painting icon' />
-                    <img className='icon' src={House} alt='house icon' />
-                    <img className='icon' src={Shirt} alt='shirt icon' />
-                    <img className='icon' src={Pants} alt='Pants icon' />
+                    <div className='category'><img className='icon' src={Plant} alt='plants icon' /><span>Greenery</span></div>
+                    <div className='category'><img className='icon' src={Picture} alt='painting icon' /><span>Wall art</span></div>
+                    <div className='category'><img className='icon' src={House} alt='house icon' /><span>Furniture</span></div>
+                    <div className='category'><img className='icon' src={Shirt} alt='shirt icon' /><span>Textiles</span></div>
+                    <div className='category'><img className='icon' src={Pants} alt='Pants icon' /><span>Everyday</span></div>
                 </div>
 
                 <div className='promo secondary'>
