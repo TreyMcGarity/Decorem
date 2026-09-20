@@ -114,7 +114,7 @@ From `shop_site_be`:
 | `npm run rollback` | Roll back the latest migration batch |
 | `npm run seed` | Load the development seed data |
 
-The backend currently has no automated test suite; its `npm test` script is a placeholder that exits with an error.
+The backend test suite uses Node's built-in test runner and Supertest for focused API checks. Tests do not require a database because model calls are isolated at the route boundary.
 
 ## API route groups
 

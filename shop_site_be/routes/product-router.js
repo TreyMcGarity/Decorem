@@ -20,7 +20,7 @@ router.get('/', async (req, res, next) => {
     const products = await product_db.getAllProducts()
 
     if (!products.length) {
-      res.status(404).json('No items found')
+      return res.status(404).json('No items found')
     }
       res.status(200).json([...products])
   } catch(error) {
@@ -44,7 +44,7 @@ router.get('/:id', async (req, res, next) => {
   try {
     const product = await product_db.getProductByID(req.params.id)
 
-    if(!product.id) res.status(404).json('No item found')
+    if(!product) return res.status(404).json('No item found')
       res.status(200).json(product)
   } catch(error) {
     throw error

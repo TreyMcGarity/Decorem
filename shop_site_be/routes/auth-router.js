@@ -60,9 +60,8 @@ router.post('/login', async (req, res, next) => {
 
         if (user_type === 'patron') {
             const user = await patron_db.getByUsername(username, 'patron')
-            const passwordValid = await bcrypt.compare(password, user.password)
-    
             if (!user) return res.status(401).json({ message: "Incorrect username or user doesnt exist and must be created" })
+            const passwordValid = await bcrypt.compare(password, user.password)
             if (!passwordValid) return res.status(401).json({ message: "Invalid password" })
     
             const token = jwt.sign(user, process.env.JWT_SECERET)
@@ -71,9 +70,8 @@ router.post('/login', async (req, res, next) => {
         
         } else if (user_type === 'vendor') {
             const user = await vendor_db.getByUsername(username, 'vendor')
-            const passwordValid = await bcrypt.compare(password, user.password)
-    
             if (!user) return res.status(401).json({ message: "Incorrect username or user doesnt exist and must be created" })
+            const passwordValid = await bcrypt.compare(password, user.password)
             if (!passwordValid) return res.status(401).json({ message: "Invalid password" })
     
             const token = jwt.sign(user, process.env.JWT_SECERET)
