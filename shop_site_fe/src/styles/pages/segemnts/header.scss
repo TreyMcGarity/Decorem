@@ -22,6 +22,55 @@
     }
 }
 
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.15rem;
+    height: 1.15rem;
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--ink);
+    cursor: pointer;
+
+    &:hover {
+        color: var(--coral-strong);
+    }
+}
+
+.panel-close {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color .2s ease, color .2s ease;
+
+    &:hover {
+        background-color: var(--sage);
+        color: var(--coral-strong);
+    }
+}
+
+.listingbtn,
+.searchbtn,
+.cartbtn,
+.favsbtn,
+.accountbtn {
+    cursor: pointer;
+}
+
 .listingbtn {
     display: flex;
     align-items: center;
@@ -29,10 +78,11 @@
 }
 
 .optionalbtn {
-    width: 8rem;
+    width: 11.5rem;
     display: flex;
     justify-content: flex-end;
-    gap: 1.25rem;
+    align-items: center;
+    gap: 1.1rem;
 }
 
 .header .title {
@@ -48,13 +98,13 @@
         padding: 0 1.15rem;
     }
 
-    .listingbtn,
-    .optionalbtn {
+    .listingbtn {
         width: 5.5rem;
     }
 
     .optionalbtn {
-        gap: .8rem;
+        width: 8rem;
+        gap: .65rem;
     }
 
     .optionalbtn .favs {

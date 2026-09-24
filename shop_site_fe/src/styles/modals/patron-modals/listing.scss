@@ -1,5 +1,5 @@
 .listing {
-    padding-top: 2.5em;
+    padding: 3.5em 1.5em 2.5em;
     width: 30%;
     height: 100%;
     display: flex;
@@ -7,8 +7,9 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #FBFBFB;
-    border-right: .1em solid black;
+    background-color: var(--surface);
+    border-right: 1px solid var(--line);
+    box-shadow: 8px 0 24px var(--shadow);
     z-index: 10;
 
     @media (max-width: 800px) {
@@ -17,12 +18,15 @@
 
     .options {
         text-decoration: none;
-        font-size: 30px;
-        color: black;
+        font-size: 1.4rem;
+        color: var(--ink);
         padding: .5em;
+        border-radius: .5em;
+        transition: background-color .2s ease, color .2s ease;
     }
 
     .options:hover {
-        box-shadow: 0 7px 5px black;
+        background-color: var(--sage);
+        color: var(--coral-strong);
     }
 }

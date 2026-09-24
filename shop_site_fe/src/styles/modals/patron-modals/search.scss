@@ -1,21 +1,27 @@
 .searchBar {
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: right;
     top: 0;
     left: 0;
     height: 5em;
     width: 100%;
     position: fixed;
-    background-color: #FBFBFB;
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 8px 24px var(--shadow);
     z-index: 10;
 }
 
 .searchBar input {
     width: 15em;
-    padding: .75em;
+    padding: .75em 1em;
     margin: 1em 0;
     border-radius: 5em;
+    border: 1px solid var(--line);
+    background-color: var(--paper);
+    color: var(--ink);
 }
 
 .searchBar .x {
@@ -23,5 +29,5 @@
     height: 1.5em;
     padding: .5em;
     margin: .75em;
-
+    cursor: pointer;
 }

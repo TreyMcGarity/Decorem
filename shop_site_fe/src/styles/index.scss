@@ -1,13 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
 
+// Light theme: warm cream neutrals (paper/surface) with a desaturated sage-green
+// support hue and a coral accent sitting near-complementary to the sage hue.
 :root {
+    color-scheme: light;
     --ink: #1d2521;
     --muted: #68716b;
     --paper: #f7f5ef;
     --surface: #fffdf8;
     --sage: #dce6d7;
+    --sage-strong: #93a98d;
     --coral: #d9664d;
+    --coral-strong: #c04f38;
     --line: #d8ddd4;
+    --shadow: rgba(29, 37, 33, 0.08);
+}
+
+// Dark theme: same hue relationships (green neutrals + coral accent), lightness
+// and saturation re-balanced for contrast/accessibility on a dark surface.
+[data-theme='dark'] {
+    color-scheme: dark;
+    --ink: #edf1ea;
+    --muted: #a3ac9e;
+    --paper: #131a14;
+    --surface: #1b241c;
+    --sage: #2a362b;
+    --sage-strong: #4d6249;
+    --coral: #ef8467;
+    --coral-strong: #f4a184;
+    --line: #303d31;
+    --shadow: rgba(0, 0, 0, 0.35);
 }
 
 * {
@@ -21,6 +43,7 @@ body {
     color: var(--ink);
     font-family: 'DM Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
+    transition: background-color .25s ease, color .25s ease;
 
     button,
     input {
